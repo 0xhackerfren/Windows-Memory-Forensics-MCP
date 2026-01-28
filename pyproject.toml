@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "windows-memory-forensics-mcp"
+version = "1.1.0"
+description = "MCP server for Windows memory forensics with Volatility 3, MemProcFS, and CLR analysis"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Jacob Krell"}
+]
+keywords = [
+    "mcp",
+    "memory-forensics",
+    "volatility",
+    "memprocfs",
+    "dfir",
+    "incident-response",
+    "malware-analysis",
+    "windows"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: System :: Forensics",
+]
+
+dependencies = [
+    "mcp>=1.2.0",
+]
+
+[project.optional-dependencies]
+volatility = [
+    "volatility3>=2.26.0",
+    "pefile>=2024.8.26",
+    "yara-python>=4.5.0",
+]
+memprocfs = [
+    "memprocfs>=5.9.0",
+]
+all = [
+    "volatility3>=2.26.0",
+    "pefile>=2024.8.26",
+    "yara-python>=4.5.0",
+    "memprocfs>=5.9.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/0xhackerfren/windows-memory-forensics-mcp"
+Documentation = "https://github.com/0xhackerfren/windows-memory-forensics-mcp#readme"
+Repository = "https://github.com/0xhackerfren/windows-memory-forensics-mcp"
+Issues = "https://github.com/0xhackerfren/windows-memory-forensics-mcp/issues"
+
+[project.scripts]
+memory-forensics-mcp = "memory_forensics_mcp:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "N", "W"]
+ignore = ["E501"]

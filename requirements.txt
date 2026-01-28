@@ -1,0 +1,26 @@
+# Windows Memory Forensics MCP - Dependencies
+# ============================================
+# Author: Jacob Krell
+# Status: Beta
+#
+# All dependencies are required for full functionality.
+# Run: pip install -r requirements.txt
+
+# MCP SDK (required)
+mcp>=1.2.0
+
+# Volatility 3 - Primary memory forensics backend
+volatility3>=2.26.0
+
+# MemProcFS - Advanced backend for minidumps and VA reads
+memprocfs>=5.9.0
+
+# PE file parsing
+pefile>=2024.8.26
+
+# YARA scanning (may require Visual C++ Build Tools on Windows)
+yara-python>=4.5.0
+
+# Note: External tools (not installable via pip)
+# - cdb.exe: Install Windows SDK Debugging Tools
+# - dotnet-dump: dotnet tool install -g dotnet-dump

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "memory-forensics-mcp": {
+      "command": "C:/path/to/windows-memory-forensics-mcp/venv/Scripts/python.exe",
+      "args": ["C:/path/to/windows-memory-forensics-mcp/src/memory_forensics_mcp.py"]
+    }
+  }
+}
